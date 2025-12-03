@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Optimizer ⚡</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="kaldif.css">
+
+</head>
+<body>
+
+<div class="container">
+  
+  <h1>Energy Optimizer ⚡</h1>
+  <p class="sub">Hitung & optimalkan pengeluaran listrik bulanan Anda.</p>
+
+  <!-- Input Tarif -->
+  <div class="card">
+    <label>Tarif Listrik</label>
+    <select id="tarif">
+      <option value="415.00">450 VA (Rp 415,00/kWh)</option>
+      <option value="1352.00">900 VA (Rp 1352,00/kWh)</option>
+      <option value="1444.70">1300 VA (Rp 1444,70/kWh)</option>
+      <option value="1444.70">2200 VA (Rp 1444,70/kWh)</option>
+      <option value="1699.53">3500 - 5500 VA (Rp 1699,53/kWh)</option>
+    </select>
+  </div>
+
+  <!-- Input Tabel Peralatan -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <strong>Daftar Peralatan</strong>
+      <div>
+        <button class="outline" onclick="contoh()">+ Contoh</button>
+        <button onclick="add()">+ Tambah</button>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th><th>Daya (W)</th><th>Jumlah</th><th>Jam/Hari</th><th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tabel"></tbody>
+    </table>
+
+    <button onclick="catatHari()">Catat</button>
+  </div>
+
+  <!-- Log Harian -->
+  <div class="card">
+    <strong>Catatan Pemakaian Harian</strong>
+
+    <table>
+      <thead>
+        <tr><th>Tanggal</th><th>Nama</th><th>Watt</th><th>Jumlah</th><th>Jam</th></tr>
+      </thead>
+      <tbody id="logTabel"></tbody>
+    </table>
+
+  <div style="margin-top:10px;">
+    <button onclick="hitungLog()">Hitung</button>
+    <button class="outline" onclick="resetLog()">Reset</button>
+  </div>
+  </div>
+
+  <!-- Hasil -->
+  <div class="card">
+    <div class="stats">
+      <div class="box">Total Pemakaian (kWh)<div id="kwh" class="num">0</div></div>
+      <div class="box">Total Tagihan<div id="tagihan" class="num">Rp 0</div></div>
+      <div class="box">Paling Boros<div id="boros" class="num">-</div></div>
+      <div class="box">Potensi Hemat<div id="hemat" class="num">Rp 0</div></div>
+    </div>
+
+    <canvas id="grafik" height="140" style="margin-top:20px;"></canvas>
+
+    <h3 style="margin-top:16px">Saran</h3>
+    <ul id="rek"></ul>
+  </div>
+
+</div>
+<!-- HELP BUTTON -->
+<div class="help-button" id="helpBtn">?</div>
+
+<!-- HELP POPUP -->
+<div class="help-popup" id="helpPopup">
+    <div class="help-content">
+        <h2>Panduan Penggunaan</h2>
+        <p>1. Pilih tarif listrik terlebih dahulu.</p>
+        <p>2. Tambah peralatan dengan klik tombol "+Tambah".</p>
+        <p>3. Isi data peralatan sesuai nama barang elektronik dan kolom tabel.</p>
+        <p>4. Catat pemakaian harian dengan tombol "Catat".</p>
+        <p>5. Hitung hasil akhir dengan tombol "Hitung".</p>
+        <p>6. Lihat hasilnya di bagian bawah.</p>
+        <p>7. "Reset" penggunaan untuk bulan/tahun berikutnya dengan tombol.</p>
+        <button id="closeHelp">Tutup</button>
+    </div>
+</div>
+
+<script src="kaldif.js"></script>
+</body>
+</html>
