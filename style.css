@@ -230,3 +230,32 @@ button:hover {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+/* ===== RESPONSIVE (Mobile Friendly) ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px; /* judul lebih kecil di HP */
+  }
+
+  .container {
+    padding: 16px; /* padding lebih kecil */
+  }
+
+  .stats {
+    grid-template-columns: 1fr; /* box jadi satu kolom */
+  }
+
+  table, th, td {
+    font-size: 12px; /* teks tabel lebih kecil */
+    padding: 8px;
+  }
+
+  .help-content {
+    width: 90%; /* popup menyesuaikan layar HP */
+  }
+
+  button {
+    width: 100%; /* tombol full width agar mudah diklik */
+  }
+}
+
